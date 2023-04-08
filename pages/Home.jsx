@@ -38,7 +38,7 @@ function Home() {
     
   return (
     <div>
-        <Link to="/Form">New</Link>
+        <Link to="/Form">Nuevo</Link>
 		<div className="nombre">
         	<h2>Registrados</h2>
 			<table>
@@ -63,8 +63,8 @@ function Home() {
 						<td>
 							<button
 							 onClick={()=>onDeleteLink(val.id)}
-							 >X</button>
-							<Link to={`/Form/${val.id}`}>Edit</Link>
+							 >Borrar</button>
+							<Link to={`/Form/${val.id}`}>Editar</Link>
 
 						</td>
 					</tr>

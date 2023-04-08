@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link} from 'react-router-dom'
 import { updatePerson } from '../redux/personSlice'
 import { collection, deleteDoc, getDoc, getDocs, addDoc, doc } from "firebase/firestore";
 import { db } from '../firebase/firebase';
@@ -37,14 +37,17 @@ const collectionName = "crudImg"
    
   return (
 	<div className="containerpro">
-		<div className="nombre">
+		<div className="miName">
 			<img src={photo} alt={name} />
+			<h4>Mi Nombre</h4>
 			<input value={name} type="text" onChange={(e)=>setName(e.target.value)}/>
 			<button 
 			onClick={()=>{handleSubmit()}}
 			>
 				Guardar cambios
 			</button>
+			<Link to={`/`}>Cancelar</Link>
+
 		</div>
 	</div>
   )
