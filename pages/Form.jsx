@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
-import { db, uploadFile } from '../firebase/firebase.js'
-import { collection, deleteDoc, getDoc, getDocs, addDoc, doc } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import { addPerson } from '../redux/personSlice.js';
+import { useDispatch } from 'react-redux'
+import { uploadFile } from '../firebase/firebase.js'
 
 function Form() {
+	const navigate = useNavigate()
 	const dispatch = useDispatch()
-	const collectionName = "crudImg"
 	const [name, setName ] = useState('')
 	const [photo, setPhoto ] = useState('')
-	const navigate = useNavigate()
-	
 
 	const handleSubmit = async () => {
-		await addDoc(collection(db, collectionName), {name,photo});
+		dispatch(addPerson({ name, photo }))
 			 navigate('/')
 	}
 
   return (
-        
 	<div className="containerpro">
 		<div className="miName">
 			<input type="file" name="" id="" onChange={async(e)=>{
